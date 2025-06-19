@@ -67,7 +67,7 @@ const register = async (req, res) => {
       // secure: false,
       secure: process.env.NODE_ENV === "production", // Set to true in production
       maxAge: 3600000,
-      sameSite: "Strict",
+      sameSite: "None",
     });
 
     res.status(201).json({
@@ -126,7 +126,7 @@ const Login = async (req, res) => {
       // secure: false,
       secure: process.env.NODE_ENV === "production", // Set to true in production
       maxAge: 3600000,
-      sameSite: "Strict",
+      sameSite: "None",
     });
 
     return res.status(200).json({
@@ -158,7 +158,7 @@ const Logout = async (req, res) => {
     // Clear the HTTP-only cookie
     res.clearCookie("token", {
       httpOnly: true,
-      sameSite: "strict",
+      sameSite: "None",
       secure: process.env.NODE_ENV === "production",
     });
 
