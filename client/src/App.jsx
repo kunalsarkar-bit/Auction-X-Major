@@ -189,6 +189,23 @@ const Layout = () => {
     checkAuthStatus();
   }, [dispatch]);
 
+
+  useEffect(() => {
+    const restoreGoogleLogin = async () => {
+      try {
+        const res = await authService.checkAuth(); // already has withCredentials
+        if (res.user) {
+          dispatch(setUser({ ...res.user, loginType: "google" }));
+        }
+      } catch {
+        console.log("Not logged in or session expired");
+      }
+    };
+
+    restoreGoogleLogin();
+  }, []);
+
+
   const hiddenPaths = [
     "/login",
     "/verifyprofile",

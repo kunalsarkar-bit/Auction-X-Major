@@ -14,7 +14,7 @@ const ProductList = () => {
   const [timeLeft, setTimeLeft] = useState({});
   const productsPerPage = 12;
   const API_URL = import.meta.env.VITE_API_URL;
-  const RECOMMENDATION_API_URL = process.env.RECOMMENDATION_API_URL;
+  const RECOMMENDATION_API_URL = import.meta.env.VITE_RECOMMENDATION_API_URL;
 
   // Track user interaction
   const trackInteraction = async (productId, interactionType) => {

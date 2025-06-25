@@ -11,7 +11,7 @@ export default defineConfig({
     host: true, // 👈 This enables access via local IP
     proxy: {
       "/api": {
-        target: "https://the-auction-x-enhanced.onrender.com", // Your backend server URL
+        target: "http://localhost:5000/", // Your backend server URL
         changeOrigin: true,
         secure: false,
       },
@@ -31,6 +31,7 @@ export default defineConfig({
     "process.env": {
       VITE_API_URL: process.env.VITE_API_URL, // ✅ Enables process.env.VITE_API_URL in app
       VITE_RAZORPAY_API_KEY: process.env.VITE_RAZORPAY_API_KEY,
+      VITE_RECOMMENDATION_API_URL: process.env.VITE_RECOMMENDATION_API_URL,
     },
   },
 });
